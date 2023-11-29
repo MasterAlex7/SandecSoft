@@ -1,0 +1,19 @@
+<app-side-bar [(collapsed)]="collapsed"></app-side-bar>
+<div class="container_p mt-4" [ngClass]="{'trimed': !collapsed, 'not-trimed': collapsed}">
+    <h1 class="sub-title">Informacion de Compra</h1>
+    <div class="card mx-auto my-5 p-5" style="max-width: 80%;">
+        <div class="card-body">
+          <h2 class="card-title"><b>Nombre de cliente: </b>{{compra.proveedor}}</h2>
+          <p class="card-text"><b>Fecha:</b> {{compra.fechaCompra}}</p>
+          <hr><br>
+          <div *ngFor="let detalle of detalleCompra">
+            <p class="card-text"><b>Nombre de producto:</b> {{detalle?.nombreProducto}}</p>
+            <p class="card-text"><b>Precio Unitario:</b> {{detalle?.precio | currency}}</p>
+            <p class="card-text"><b>Cantidad de producto:</b> {{detalle?.cantidad}}</p> <br>
+          </div>
+          <hr>
+          <p class="card-text"><b>Total de compra:</b> {{compra.total | currency}}</p>
+        </div>
+      </div>      
+</div>
+  

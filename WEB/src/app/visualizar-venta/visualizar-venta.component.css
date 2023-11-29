@@ -1,0 +1,24 @@
+.container_p {
+    transition: all 0.3s ease;
+  }
+    
+  .trimed {
+    width: calc(100% - 19em);
+    margin-left: 18em;
+  }
+      
+  .not-trimed {
+    width: calc(100% - 6em);
+    margin-left: 5em;
+  }
+  
+  .card-text{
+    font-size: 1.2em;
+  }
+
+
+.sub-title{
+  text-align: center;
+  font-size: 1.8em;
+  color: var(--primary-color);
+}

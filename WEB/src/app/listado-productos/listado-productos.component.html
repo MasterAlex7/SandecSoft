@@ -1,0 +1,24 @@
+<app-side-bar [(collapsed)]="collapsed"></app-side-bar>
+<div class="container_p mt-4" [ngClass]="{'trimed': !collapsed, 'not-trimed': collapsed}">
+    <h1>Lista de Productos Disponibles</h1>
+    <div class="row">
+      <!-- Creacion de listado de productos -->
+      <div class="col-md-4 mb-4" *ngFor="let producto of productos | paginate: { itemsPerPage: 6, currentPage: p }">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title">{{producto.nombre}}</h5>
+            <p class="card-text">Descripcion: {{producto.descripcion}}</p>
+            <p class="card-text">Precio de venta: ${{producto.precio_venta}}</p>
+            <p class="card-text">Stock Disponible: {{producto.cantidad_stock}}</p>
+            <!-- Agrega más detalles del producto según sea necesario -->
+            <div class="botones-opc">
+              <a (click)="visualizarProducto(producto)" class="btn btn-primary mt-2">Ver Detalles</a>
+              <a (click)="editarProducto(producto)" class="btn btn-primary mt-2">Editar Producto</a>
+          </div>
+          </div>
+        </div>
+      </div>
+      <pagination-controls class="custom-pagination" style="color: whitesmoke;" (pageChange)="p = $event"></pagination-controls>      
+    </div>
+  </div>
+  

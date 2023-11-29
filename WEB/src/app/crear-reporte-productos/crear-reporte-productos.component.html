@@ -1,0 +1,21 @@
+<app-side-bar [(collapsed)]="collapsed"></app-side-bar>
+<div class="container" [ngClass]="{'trimed': !collapsed, 'not-trimed': collapsed}">
+  <div class="form-container">
+    <h1 class="text-center">Reporte de Productos</h1>
+    <form (ngSubmit)="generarReporte()">
+        <div class="form-row">
+          <div class="form-group col">
+            <label for="fechaInicio">Fecha de Inicio:</label>
+            <input type="date" class="form-control" id="fechaInicio" name="fechaInicio" [(ngModel)]="fechaInicio">
+          </div>
+          <div class="form-group col">
+            <label for="fechaFin">Fecha de Fin:</label>
+            <input type="date" class="form-control" id="fechaFin" name="fechaFin" [(ngModel)]="fechaFin">
+          </div>
+          <div class="form-group col">
+            <button type="submit" class="btn btn-primary">Generar Reporte</button>
+          </div>
+        </div>
+      </form>
+  </div>
+</div>

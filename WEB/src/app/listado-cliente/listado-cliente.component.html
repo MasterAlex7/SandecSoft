@@ -1,0 +1,20 @@
+<app-side-bar [(collapsed)]="collapsed"></app-side-bar>
+<div
+  class="container_p mt-4"
+  [ngClass]="{ trimed: !collapsed, 'not-trimed': collapsed }"
+>
+  <h2>Lista de Clientes</h2>
+
+  <div class="cliente" *ngFor="let cliente of clientes">
+    <div class="cliente-info">
+      <p class="cliente-vendedor"><b>Nombre:</b> {{ cliente.nombre }}</p>
+      <p class="cliente-direccion"><b>Direccion:</b> {{ cliente.direccion }}</p>
+      <p class="cliente-telefono"><b>Telefono:</b> {{ cliente.telefono }}</p>
+      <p class="cliente-email"><b>Email:</b> {{ cliente.email }}</p>
+    </div>
+    <button (click)="editarCliente(cliente)" class="btn-ver-detalle">
+      Editar cliente
+    </button>
+    <mat-icon class="icon delete mx-2" (click)="desactivar(cliente)">delete_outline</mat-icon>
+  </div>
+</div>

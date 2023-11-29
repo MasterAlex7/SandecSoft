@@ -1,0 +1,55 @@
+.container_p {
+  transition: all 0.3s ease;
+}
+
+.card-img-container-main {
+  margin: 0 auto;
+  filter: invert(100%);
+}
+
+.card-img-container {
+  margin: 0 auto;
+  filter: invert(100%);
+}
+
+.card {
+  background-color: var(--primary-color);
+}
+
+.card-title {
+  color: white;
+}
+
+.container-cards {
+  transition: all .3s ease;
+}
+
+.trimed {
+  width: calc(100% - 19em);
+  margin-left: 18em;
+}
+
+
+.not-trimed {
+  width: calc(100% - 6em);
+  margin-left: 5em;
+}
+
+.option-card {
+  border-radius: 10px;
+  background-color: white;
+  color: black;
+  transition: background-color 0.3s, color 0.3s;
+  text-align: center;
+}
+
+.option-card:hover {
+  background-color: var(--thrid-color);
+  color: white;
+}
+
+.title-inicio{
+  font-weight: 500;
+  font-size: 2rem;
+  color: var(--primary-color);
+}

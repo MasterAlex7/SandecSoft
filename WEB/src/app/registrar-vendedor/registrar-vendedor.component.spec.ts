@@ -1,0 +1,23 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { RegistrarVendedorComponent } from './registrar-vendedor.component';
+
+describe('RegistrarVendedorComponent', () => {
+  let component: RegistrarVendedorComponent;
+  let fixture: ComponentFixture<RegistrarVendedorComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [ RegistrarVendedorComponent ]
+    })
+    .compileComponents();
+
+    fixture = TestBed.createComponent(RegistrarVendedorComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

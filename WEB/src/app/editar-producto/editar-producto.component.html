@@ -1,0 +1,223 @@
+<app-side-bar [(collapsed)]="collapsed"></app-side-bar>
+<div
+  class="container_p mt-4"
+  [ngClass]="{ trimed: !collapsed, 'not-trimed': collapsed }"
+>
+    <div class="d-flex justify-content-center">
+      <div class="card w-75" style="padding: 1em;">
+        <h1 class="mb-4">Editar Producto</h1>
+        <form
+        [formGroup]="productoForm"
+        (ngSubmit)="guardarProducto()"
+        class="needs-validation"
+        novalidate
+      >
+        <div class="form-group mb-3 col-md-6">
+          <label class="form-label">Nombres</label>
+          <input
+            type="text"
+            class="form-control"
+            id="floatingNombre"
+            formControlName="nombre"
+            maxlength="40"
+            [(ngModel)]="producto.nombre"
+            [ngClass]="
+              productoForm.controls['nombre'].valid
+                ? 'is-valid'
+                : '' + productoForm.controls['nombre'].invalid &&
+                  productoForm.controls['nombre'].touched
+                ? 'is-invalid'
+                : ''
+            "
+          />
+          <div
+            class="invalid-feedback"
+            *ngIf="
+              productoForm.controls['nombre'].invalid &&
+              productoForm.controls['nombre'].touched
+            "
+          >
+            <div *ngIf="productoForm.controls['nombre'].errors?.['required']">
+              Es necesario un nombre de producto.
+            </div>
+          </div>
+        </div>
+        <div class="form-group mb-3">
+          <label for="descripcion">Descripción</label>
+          <textarea
+            class="form-control"
+            id="descripcion"
+            formControlName="descripcion"
+            maxlength="254"
+            [(ngModel)]="producto.descripcion"
+            rows="4"
+            [ngClass]="
+              productoForm.controls['descripcion'].valid
+                ? 'is-valid'
+                : '' + productoForm.controls['descripcion'].invalid &&
+                  productoForm.controls['descripcion'].touched
+                ? 'is-invalid'
+                : ''
+            "
+          >
+          </textarea>
+          <div
+            class="invalid-feedback"
+            *ngIf="
+              productoForm.controls['descripcion'].invalid &&
+              productoForm.controls['descripcion'].touched
+            "
+          >
+            <div
+              *ngIf="productoForm.controls['descripcion'].errors?.['required']"
+            >
+              Es necesario una descripción.
+            </div>
+          </div>
+        </div>
+        <div class="d-flex justify-content-around">
+          <div class="form-group mb-3 col-md-6 px-3">
+            <label class="form-label">Precio de Compra</label>
+            <input
+              type="number"
+              class="form-control"
+              id="precioCompra"
+              formControlName="precio_compra"
+              [(ngModel)]="producto.precio_compra"
+              [ngClass]="
+                productoForm.controls['precio_compra'].valid
+                  ? 'is-valid'
+                  : '' + productoForm.controls['precio_compra'].invalid &&
+                    productoForm.controls['precio_compra'].touched
+                  ? 'is-invalid'
+                  : ''
+              "
+            />
+            <div
+              class="invalid-feedback"
+              *ngIf="
+                productoForm.controls['precio_compra'].invalid &&
+                productoForm.controls['precio_compra'].touched
+              "
+            >
+              <div *ngIf="productoForm.controls['precio_compra'].errors?.['required']">
+                Es necesario un precio de compra mayor a 0.
+              </div>
+            </div>
+          </div>
+          <div class="form-group mb-3 col-md-6 px-3">
+            <label class="form-label">Precio de Venta</label>
+            <input
+              type="number"
+              class="form-control"
+              id="precioVenta"
+              formControlName="precio_venta"
+              [(ngModel)]="producto.precio_venta"
+              [ngClass]="
+                productoForm.controls['precio_venta'].valid
+                  ? 'is-valid'
+                  : '' + productoForm.controls['precio_venta'].invalid &&
+                    productoForm.controls['precio_venta'].touched
+                  ? 'is-invalid'
+                  : ''
+              "
+            />
+            <div
+              class="invalid-feedback"
+              *ngIf="
+                productoForm.controls['precio_venta'].invalid &&
+                productoForm.controls['precio_venta'].touched
+              "
+            >
+              <div *ngIf="productoForm.controls['precio_venta'].errors?.['required']">
+                Es necesario un precio de compra mayor a 0.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex justify-content-around">
+          <div class="form-group mb-3 col-md-6 px-3">
+            <label for="cantidadStock">Cantidad en Stock</label>
+            <input
+              type="number"
+              class="form-control"
+              id="stockActual"
+              formControlName="stock_actual"
+              [(ngModel)]="producto.cantidad_stock"
+              [ngClass]="
+                productoForm.controls['stock_actual'].valid
+                  ? 'is-valid'
+                  : '' + productoForm.controls['stock_actual'].invalid &&
+                    productoForm.controls['stock_actual'].touched
+                  ? 'is-invalid'
+                  : ''
+              "
+            />
+            <div
+              class="invalid-feedback"
+              *ngIf="
+                productoForm.controls['stock_actual'].invalid &&
+                productoForm.controls['stock_actual'].touched
+              "
+            >
+              <div *ngIf="productoForm.controls['stock_actual'].errors?.['required']">
+                Es necesario un precio de compra mayor a 0.
+              </div>
+            </div>
+          </div>
+          <div class="form-group mb-3 col-md-6 px-3">
+            <label for="cantidadMinima">Cantidad Mínima</label>
+            <input
+              type="number"
+              class="form-control"
+              id="cantidadMinima"
+              formControlName="stock_minimo"
+              [(ngModel)]="producto.cantidad_minima"
+              [ngClass]="
+                productoForm.controls['stock_minimo'].valid
+                  ? 'is-valid'
+                  : '' + productoForm.controls['stock_minimo'].invalid &&
+                    productoForm.controls['stock_minimo'].touched
+                  ? 'is-invalid'
+                  : ''
+              "
+            />
+            <div
+              class="invalid-feedback"
+              *ngIf="
+                productoForm.controls['stock_minimo'].invalid &&
+                productoForm.controls['stock_minimo'].touched
+              "
+            >
+              <div *ngIf="productoForm.controls['stock_minimo'].errors?.['required']">
+                Es necesario un precio de compra mayor a 0.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group mb-4 col-md-6 px-3">
+          <label for="categoriaId">Categoría</label>
+          <select
+            id="categoriaId"
+            name="categoriaId"
+            class="form-control"
+            formControlName="categoriaId"
+            required
+            (change)="onCategoriaSeleccionada($event)"
+          >
+          <option *ngFor="let categoria of categorias" [value]="categoria.nombre">
+            {{ categoria.nombre }}
+          </option>
+          </select>
+        </div>
+        <button
+          type="submit"
+          class="btn btn-primary btn-block"
+          [disabled]="!productoForm.valid"
+        >
+          Guardar Producto
+        </button>
+      </form>
+    </div>
+    </div>
+</div>

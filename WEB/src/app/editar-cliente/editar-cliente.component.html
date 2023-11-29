@@ -1,0 +1,61 @@
+<app-side-bar [(collapsed)]="collapsed"></app-side-bar>
+<div class="container" [ngClass]="{'trimed': !collapsed, 'not-trimed': collapsed}"> 
+    <div class="form-container">
+        <h1 class="text-center">Editar Cliente</h1>
+        <form [formGroup]="editarClienteForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" class="form-control" formControlName="nombre" [(ngModel)]="cliente.nombre" 
+            [ngClass]="
+            editarClienteForm.controls['nombre'].valid
+                    ? 'is-valid'
+                    : '' + editarClienteForm.controls['nombre'].invalid &&
+                    editarClienteForm.controls['nombre'].touched
+                    ? 'is-invalid'
+                    : ''
+                "/>
+                <div *ngIf="editarClienteForm.controls['nombre'].errors?.['required']" class="text-danger">Ingresar Nombre</div>
+          </div>
+          <div class="form-group">
+            <label for="direccion">Direccion:</label>
+            <input class="form-control" id="direccion" name="direccion" formControlName="direccion" [(ngModel)]="cliente.direccion"
+            [ngClass]="
+            editarClienteForm.controls['direccion'].valid
+                    ? 'is-valid'
+                    : '' + editarClienteForm.controls['direccion'].invalid &&
+                    editarClienteForm.controls['direccion'].touched
+                    ? 'is-invalid'
+                    : ''
+                "/>
+                <div *ngIf="editarClienteForm.controls['direccion'].errors?.['required']" class="text-danger">Ingresar direccion valida</div>
+          </div>
+          <div class="form-group">
+            <label for="telefono">Telefono:</label>
+            <input class="form-control" id="telefono" name="telefono" formControlName="telefono" [(ngModel)]="cliente.telefono"
+            [ngClass]="
+            editarClienteForm.controls['telefono'].valid
+                    ? 'is-valid'
+                    : '' + editarClienteForm.controls['telefono'].invalid &&
+                    editarClienteForm.controls['telefono'].touched
+                    ? 'is-invalid'
+                    : ''
+                "/>
+                <div *ngIf="editarClienteForm.controls['telefono'].errors?.['required']" class="text-danger">Telefono 10 Digitos, con o sin extension de numero</div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" class="form-control" formControlName="email" [(ngModel)]="cliente.email" 
+            [ngClass]="
+            editarClienteForm.controls['email'].valid
+                    ? 'is-valid'
+                    : '' + editarClienteForm.controls['email'].invalid &&
+                    editarClienteForm.controls['email'].touched
+                    ? 'is-invalid'
+                    : ''
+                "/>
+                <div *ngIf="editarClienteForm.controls['email'].errors?.['required']" class="text-danger">Ingresar correo formato email@correo.com</div>
+          </div>
+          <button type="submit" class="btn btn-primary">Editar Cliente</button>
+        </form>
+      </div>
+</div>

@@ -1,0 +1,33 @@
+<app-side-bar [(collapsed)]="collapsed"></app-side-bar>
+<div class="container" [ngClass]="{'trimed': !collapsed, 'not-trimed': collapsed}">
+  <div class="form-container">
+    <h1 class="text-center">Editar Categoria</h1>
+    <form [formGroup]="editarCategoriaForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" class="form-control" formControlName="nombre" [(ngModel)]="categoria.nombre" [ngClass]="
+        editarCategoriaForm.controls['nombre'].valid
+          ? 'is-valid'
+          : '' + editarCategoriaForm.controls['nombre'].invalid &&
+          editarCategoriaForm.controls['nombre'].touched
+          ? 'is-invalid'
+          : '' "/>
+          <div *ngIf="editarCategoriaForm.controls['nombre'].errors?.['required']" class="text-danger">Ingresar nombre</div>
+      </div>
+      <div class="form-group">
+        <label for="descripcion">Descripcion:</label>
+        <textarea class="form-control" id="descripcion" name="descripcion" formControlName="descripcion" [(ngModel)]="categoria.descripcion"
+        [ngClass]="
+        editarCategoriaForm.controls['descripcion'].valid
+                ? 'is-valid'
+                : '' + editarCategoriaForm.controls['descripcion'].invalid &&
+                editarCategoriaForm.controls['descripcion'].touched
+                ? 'is-invalid'
+                : ''
+            "></textarea>
+            <div *ngIf="editarCategoriaForm.controls['descripcion'].errors?.['required']" class="text-danger">Breve Descripción</div>
+      </div>
+      <button type="submit" class="btn btn-primary">Editar Categoria</button>
+    </form>
+  </div>
+</div>

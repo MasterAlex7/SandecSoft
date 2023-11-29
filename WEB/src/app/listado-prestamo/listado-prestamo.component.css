@@ -1,0 +1,87 @@
+.container_p {
+    width: 95%;
+    transition: all 0.3s ease;
+}
+
+.prestamo {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.prestamo-info {
+    flex-grow: 1;
+}
+
+.prestamo-fecha {
+    font-size: 16px;
+}
+
+.prestamo-identificador {
+    font-size: 14px;
+    color: #777;
+}
+
+.btn-concretar {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin: 0.5em;
+}
+
+.btn-desactivar {
+    background-color: #ce1100;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin: 0.5em;
+}
+
+.btn-visualizar{
+    background-color: #58c71c;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin: 0.5em;
+
+}
+
+.btn-ver-detalle:hover {
+    background-color: #0056b3;
+}
+
+button:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+.trimed {
+    width: calc(100% - 18em);
+    margin-left: 18em;
+}
+
+
+.not-trimed {
+    width: calc(100% - 5em);
+    margin-left: 5em;
+}
+
+.botones-vert{
+    display:flex;
+    flex-direction: column;
+}
+
+.sub-title{
+    text-align: center;
+    font-size: 1.8em;
+    color: var(--primary-color);
+}

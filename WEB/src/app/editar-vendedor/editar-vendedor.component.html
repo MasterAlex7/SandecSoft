@@ -1,0 +1,45 @@
+<app-side-bar [(collapsed)]="collapsed"></app-side-bar>
+<div class="container" [ngClass]="{'trimed': !collapsed, 'not-trimed': collapsed}"> 
+    <div class="form-container">
+        <h1 class="text-center">Editar Vendedor</h1>
+        <form [formGroup]="editarVendedorForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" formControlName="nombre" name="nombre" class="form-control"  [(ngModel)]="vendedor.nombreVendedor"
+            [ngClass]=" 
+            editarVendedorForm.controls['nombre'].valid
+              ? 'is-valid'
+              : '' + editarVendedorForm.controls['nombre'].invalid &&
+              editarVendedorForm.controls['nombre'].touched
+              ? 'is-invalid'
+              : '' " />
+              <div *ngIf="editarVendedorForm.controls['nombre'].errors?.['required']" class="text-danger">Ingresar nombre del vendedor</div>
+          </div>
+          <div class="form-group">
+            <label for="direccion">Nombre Negocio:</label>
+            <input type="text" id="direccion" formControlName="negocio" name="direccion" class="form-control"   [(ngModel)]="vendedor.nombreNegocio"
+            [ngClass]="
+            editarVendedorForm.controls['negocio'].valid
+              ? 'is-valid'
+              : '' + editarVendedorForm.controls['negocio'].invalid &&
+              editarVendedorForm.controls['negocio'].touched
+              ? 'is-invalid'
+              : '' "/>
+              <div *ngIf="editarVendedorForm.controls['negocio'].errors?.['required']" class="text-danger">Ingresar nombre del negocio</div>
+          </div>
+          <div class="form-group">
+            <label for="telefono">Telefono:</label>
+            <input type="text" id="telefono" formControlName="telefono" name="telefono" class="form-control"  [(ngModel)]="vendedor.telefonoContacto"
+            [ngClass]="
+            editarVendedorForm.controls['telefono'].valid
+              ? 'is-valid'
+              : '' + editarVendedorForm.controls['telefono'].invalid &&
+              editarVendedorForm.controls['telefono'].touched
+              ? 'is-invalid'
+              : '' " />
+              <div *ngIf="editarVendedorForm.controls['telefono'].errors?.['required']" class="text-danger">Ingresar telefono</div>
+          </div>
+          <button type="submit" class="btn btn-primary" [disabled]="!editarVendedorForm.valid">Editar Vendedor</button>
+        </form>
+      </div>
+</div>

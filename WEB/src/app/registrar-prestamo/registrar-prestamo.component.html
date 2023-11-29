@@ -1,0 +1,50 @@
+<app-side-bar [(collapsed)]="collapsed"></app-side-bar>
+<div class="container_p mt-4" [ngClass]="{'trimed': !collapsed, 'not-trimed': collapsed}">
+  <div class="form_register_container">
+    <h1 class="text-center">Registro de Prestamo</h1>
+    <form (ngSubmit)="guardarProducto()" >
+      <div class="form-group">
+        <label for="cliente">Cliente:</label>
+        <select id="cliente" name="cliente" class="form-select"  (change)="onVendedorSeleccionado($event)">
+          <option value="">Selecciona un vendedor</option>
+          <option *ngFor="let vendedor of vendedores" [value]="vendedor.nombreNegocio">
+            {{ vendedor.nombreNegocio }}
+          </option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="producto">Producto:</label>
+        <input type="text" id="producto" name="producto" class="form-control" [formControl]="productoControl" [matAutocomplete]="auto" />
+        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onProductoSeleccionado($event)">
+          <mat-option *ngFor="let producto of resultadosBusqueda | async" [value]="producto.nombre">
+            {{ producto.nombre }}
+          </mat-option>
+        </mat-autocomplete>
+      </div>    
+      <div class="form-group">
+        <label for="cantidad">Cantidad a Prestar:</label>
+        <input type="number" id="cantidad" name="cantidad" class="form-control" [(ngModel)]="cantidad" />
+      </div>
+      <div class="form-group">
+        <label for="precio">Precio del Producto:</label>
+        <input type="text" id="precio" name="precio" class="form-control" readonly [(ngModel)]="productoSeleccionado.precio_venta" />
+      </div>
+      <button type="submit" class="btn btn-primary">Agregar Producto</button>
+    </form>
+  </div>
+  <div class="form-container">
+    <h2>Productos a Prestar</h2>
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let producto of producto.arrayProductos">
+        Producto: {{ getNombreProducto(producto.idProducto) }} <br>
+        Cantidad: {{ producto.cantidad }}<br>
+        Precio unitario: {{ producto.precioUnitario | currency }}
+      </li>
+    </ul>
+    
+    <h2>Total de Prestamo</h2>
+    <p class="bg-primary text-white p-2">{{ totalVenta | currency }}</p>
+    <button type="button" class="btn btn-primary" (click)="guardarPrestamo()">Guardar Prestamo</button>
+  </div>
+</div>

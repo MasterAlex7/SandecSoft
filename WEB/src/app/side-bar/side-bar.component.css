@@ -1,0 +1,154 @@
+.logo {
+    padding: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1em;
+}
+
+.logo-img {
+    width: 50%;
+}
+
+mat-icon {
+    align-items: center;
+    justify-content: center;
+    color: rgb(241, 255, 255) !important;
+}
+
+.title-section {
+    padding-left: 0.5em;
+}
+
+.mat-divider {
+    border-color: rgb(186, 186, 186);
+    border-top-width: 4px;
+    border-radius: 5px;
+    margin: 0em 1em 0em 1em;
+}
+
+
+.sidebar {
+    margin-top: 1em;
+    background: var(--background-color);
+    color: white;
+    /* Color del texto en el sidebar */
+    padding: 1px;
+    font-size: 1.4em;
+}
+
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    font-weight: 300;
+    margin-bottom: 1em;
+    transition: all .2s ease-in-out;
+}
+
+.nav-item-sub {
+    display: flex;
+    flex-direction: column;
+    font-weight: 300;
+}
+
+/* Efecto de hover */
+.nav-item:hover {
+    border-radius: 5px;
+    background-color: var(--fifth-color);
+}
+
+.nav-item:hover .nav-link mat-icon {
+    color: var(--background-color) !important;
+}
+
+.nav-link {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    color: white;
+    transition: height .2s ease-in-out;
+}
+
+.sub_menu_show {
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.nav-link:hover {
+    color: var(--background-color);
+}
+
+
+.nav-subitem:hover {
+    width: 100%;
+    background-color: var(--sub-item);
+}
+
+
+/* Define una animación de deslizamiento suave */
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+/* Aplica la animación al sidebar */
+.sidebar-container {
+    background: var(--background-color);
+    transition: all .3s ease;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    width: 17em;
+    height: 100vh;
+    box-shadow: 0.063rem 0 0.75rem 0 #8690a3;
+    overflow-y: auto;
+    overflow-x: hidden; /* Evita el desbordamiento horizontal */
+}
+
+.sidenav-collapsed {
+    width: 4em;
+}
+
+.sidebar-collapsed {
+    width: 1em;
+}
+
+.menu-button {
+    display: block;
+    cursor: pointer;
+    width: 2em;
+    padding-left: 0.65em;
+}
+
+/* Personaliza la barra de desplazamiento para navegadores WebKit */
+.sidebar-container::-webkit-scrollbar {
+    width: 8px; /* Ancho de la barra de desplazamiento */
+}
+
+.sidebar-container::-webkit-scrollbar-thumb {
+    background-color: var(--sub-menu); /* Color del pulgar de la barra de desplazamiento */
+    border-radius: 6px; /* Radio de esquinas del pulgar */
+}
+
+.sidebar-container::-webkit-scrollbar-track {
+    background-color: var(--fourth-color); /* Color de la pista de la barra de desplazamiento */
+}
+
+

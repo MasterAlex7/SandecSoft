@@ -1,0 +1,58 @@
+[
+  {
+    "titulo": "Categorías",
+    "id": "categoria",
+    "rutas": [
+      {
+        "texto": "Registrar",
+        "ruta": "/registrar-categoria"
+      },
+      {
+        "texto": "Consultar",
+        "ruta": "/listado-categoria"
+      }
+    ]
+  },
+  {
+    "titulo": "Proveedores",
+    "id": "proveedor",
+    "rutas": [
+      {
+        "texto": "Registrar",
+        "ruta": "/registrar-proveedor"
+      },
+      {
+        "texto": "Consultar",
+        "ruta": "/listado-proveedor"
+      }
+    ]
+  },
+  {
+    "titulo": "Clientes",
+    "id": "cliente",
+    "rutas": [
+      {
+        "texto": "Proveedor",
+        "ruta": "/registrar-cliente"
+      },
+      {
+        "texto": "Cliente",
+        "ruta": "/listado-cliente"
+      }
+    ]
+  },
+  {
+    "titulo": "Vendedores",
+    "id": "vendedor",
+    "rutas": [
+      {
+        "texto": "Proveedor",
+        "ruta": "/registrar-vendedor"
+      },
+      {
+        "texto": "Cliente",
+        "ruta": "/listado-vendedores"
+      }
+    ]
+  }
+]

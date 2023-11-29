@@ -1,0 +1,12 @@
+<app-side-bar [(collapsed)]="collapsed"></app-side-bar>
+<div class="container_p mt-4" [ngClass]="{'trimed': !collapsed, 'not-trimed': collapsed}">
+  <h2>Lista de Categorias</h2>
+  <div *ngFor="let categoria of categorias" class="categoria">
+    <div class="categoria-info">
+      <p class="categoria-nombre"><b>Nombre: </b>{{ categoria.nombre }}</p>
+      <p class="categoria-descripcion"><b>Descripcion: </b>{{ categoria.descripcion }}</p>
+    </div>
+    <button (click)="editarCategoria(categoria)" class="btn-ver-detalle">Editar Categoria</button>
+    <mat-icon class="icon delete mx-2" (click)="desactivar(categoria)">delete_outline</mat-icon>
+  </div>
+</div>

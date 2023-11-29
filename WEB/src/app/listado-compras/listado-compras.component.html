@@ -1,0 +1,14 @@
+<app-side-bar [(collapsed)]="collapsed"></app-side-bar>
+<div class="container_p mt-4" [ngClass]="{'trimed': !collapsed, 'not-trimed': collapsed}">
+  <h2 class="sub-title">Lista de Compras</h2>
+
+  <div class="compra" *ngFor="let compra of compras">
+    <div class="compra-info">
+      <p class="compra-nombre"><b>Nombre Proveedor: </b>{{ compra.proveedor }}</p>
+      <p class="compra-nombre"><b>Fecha de Compra: </b>{{ compra.fechaCompra }}</p>
+      <p class="compra-nombre"><b>Monto de compra: </b>{{ compra.total | currency }}</p>
+    </div>
+    <button (click)="visualizarCompra(compra)" class="btn-ver-detalle">Visualizar</button>
+    <mat-icon class="icon delete mx-2">delete_outline</mat-icon>
+  </div>
+</div>

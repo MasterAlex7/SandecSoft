@@ -1,0 +1,16 @@
+<app-side-bar [(collapsed)]="collapsed"></app-side-bar>
+<div class="container_p mt-4" [ngClass]="{ trimed: !collapsed, 'not-trimed': collapsed }">
+  <h2>Lista de Vendedores</h2>
+
+  <div class="vendedor" *ngFor="let vendedor of vendedores">
+    <div class="vendedor-info">
+      <p class="vendedor-nombre"><b>Nombre:</b>{{ vendedor.nombreVendedor }}</p>
+      <p class="vendedor-negocio"><b>Negocio:</b> {{ vendedor.nombreNegocio }}</p>
+      <p class="vendedor-telefono"><b>Telefono:</b> {{ vendedor.telefonoContacto }}</p>
+    </div>
+    <button (click)="editarVendedor(vendedor)" class="btn-ver-detalle">
+      Editar vendedor
+    </button>
+    <mat-icon class="icon delete mx-2" (click)="desactivar(vendedor)">delete_outline</mat-icon>
+  </div>
+</div>

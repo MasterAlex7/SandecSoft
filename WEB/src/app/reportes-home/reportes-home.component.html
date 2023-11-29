@@ -1,0 +1,58 @@
+<app-side-bar [(collapsed)]="collapsed"></app-side-bar>
+<div class="container_p mt-4" [ngClass]="{'trimed': !collapsed, 'not-trimed': collapsed}">
+  <h1 class="text-center text-uppercase font-weight-bold title-inicio">Reportes de SanDec</h1>
+  <div class="row g-3 p-4">
+    <!-- Categoría Ventas -->
+    <div class="col style">
+      <div class="card mb-3">
+        <div class="card-img-container-main d-flex justify-content-center align-items-center mt-4">
+          <img src="../../assets/save-money.png" class="card-img-top scale-img" alt="...">
+        </div>
+        <div class="card-body d-flex flex-column justify-content-center align-items-center">
+          <h1 class="card-title">Ventas</h1>
+        </div>
+      </div>
+      <a routerLink="/crear-reporte-ventas" class="text-decoration-none ">
+        <div class="option-card p-3 mb-3 shadow d-flex flex-column align-items-center justify-content-center">
+          <h2>Crear Reporte de Ventas</h2>
+        </div>
+      </a>           
+    </div>
+
+    <!-- Categoría Productos -->
+    <div class="col">
+      <div class="card mb-3">
+        <div class="card-img-container d-flex justify-content-center align-items-center mt-4">
+          <img src="../../assets/bag.png" class="card-img-top scale-img" alt="...">
+        </div>
+        <div class="card-body d-flex flex-column justify-content-center align-items-center">
+          <h1 class="card-title">Productos</h1>
+        </div>
+      </div>
+      <a routerLink="/crear-reporte-productos" class="text-decoration-none ">
+        <div class="option-card p-3 mb-3 shadow d-flex flex-column align-items-center justify-content-center">
+          <h2>Crear Reporte de Productos</h2>
+        </div>
+      </a> 
+    </div>
+
+    <!-- Categoría Prestamos -->
+    <div class="col">
+      <div class="card mb-3">
+        <div class="card-img-container d-flex justify-content-center align-items-center mt-4">
+          <img src="../../assets/compra.png" class="card-img-top scale-img" alt="...">
+        </div>
+        <div class="card-body d-flex flex-column justify-content-center align-items-center">
+          <h1 class="card-title">Compras</h1>
+        </div>
+      </div>
+      <a routerLink="/crear-reporte-compras" class="text-decoration-none ">
+        <div class="option-card p-3 mb-3 shadow d-flex flex-column align-items-center justify-content-center">
+          <h2>Crear Reporte de Compras </h2>
+        </div>
+      </a> 
+    </div>
+    <!-- Categoría Reportes -->
+  </div>
+  <!-- Agrega más categorías y opciones según sea necesario -->
+</div>

@@ -1,0 +1,57 @@
+<app-side-bar [(collapsed)]="collapsed"></app-side-bar>
+<div class="container" [ngClass]="{'trimed': !collapsed, 'not-trimed': collapsed}"> 
+    <div class="form-container">
+        <h1 class="text-center">Editar Proveedor</h1>
+        <form [formGroup]="editarProveedorForm" (ngSubmit)="onSubmit()"> 
+          <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" class="form-control" formControlName="nombre" [(ngModel)]="proveedor.nombre"
+            [ngClass]="
+            editarProveedorForm.controls['nombre'].valid
+          ? 'is-valid'
+          : '' + editarProveedorForm.controls['nombre'].invalid &&
+          editarProveedorForm.controls['nombre'].touched
+          ? 'is-invalid'
+          : '' "/>
+          </div>
+          <div *ngIf="editarProveedorForm.controls['nombre'].errors?.['required']" class="text-danger">Nombre Valido</div>
+          <div class="form-group">
+            <label for="direccion">Direccion:</label>
+            <input type="text" id="direccion" name="direccion" class="form-control" formControlName="direccion" [(ngModel)]="proveedor.direccion"
+            [ngClass]="
+            editarProveedorForm.controls['direccion'].valid
+          ? 'is-valid'
+          : '' + editarProveedorForm.controls['direccion'].invalid &&
+          editarProveedorForm.controls['direccion'].touched
+          ? 'is-invalid'
+          : '' "/>
+          <div *ngIf="editarProveedorForm.controls['direccion'].errors?.['required']" class="text-danger">Direccion valida</div>
+          </div>
+          <div class="form-group">
+            <label for="telefono">Telefono:</label>
+            <input type="text" id="telefono" name="telefono" class="form-control" formControlName="telefono" [(ngModel)]="proveedor.telefono"
+            [ngClass]="
+            editarProveedorForm.controls['telefono'].valid
+          ? 'is-valid'
+          : '' + editarProveedorForm.controls['telefono'].invalid &&
+          editarProveedorForm.controls['telefono'].touched
+          ? 'is-invalid'
+          : '' "/>
+            <div *ngIf="editarProveedorForm.controls['telefono'].errors?.['required']" class="text-danger">Telefono Correecto</div>
+          </div>
+          <div class="form-group">
+            <label for="correo">Correo Electronico:</label>
+            <input type="text" id="correo" name="correo" class="form-control" formControlName="email" [(ngModel)]="proveedor.email"
+            [ngClass]="
+            editarProveedorForm.controls['email'].valid
+          ? 'is-valid'
+          : '' + editarProveedorForm.controls['email'].invalid &&
+          editarProveedorForm.controls['email'].touched
+          ? 'is-invalid'
+          : '' "/>
+            <div *ngIf="editarProveedorForm.controls['email'].errors?.['required']" class="text-danger">Correo electronico valido</div>
+          </div>
+          <button type="submit" class="btn btn-primary">Editar Proveedor</button>
+        </form>
+      </div>
+</div>

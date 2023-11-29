@@ -1,0 +1,17 @@
+<app-side-bar [(collapsed)]="collapsed"></app-side-bar>
+<div
+  [ngClass]="{ trimed: !collapsed, 'not-trimed': collapsed }"
+>
+<div class="container_p mx-5 d-flex flex-column">
+  <h1 class="text-center text-uppercase font-weight-bold title-inicio">Configuracion</h1>
+  <div class="row g-4 p-4 d-flex flex-column">
+    <div class="d-flex flex-row align-items-center contain-option" *ngFor="let item of menu">
+      <h2 class="subtitle-config">{{ item.titulo }}</h2>
+      <div class="ml-auto d-flex align-items-center">
+        <a [routerLink]="item.rutas[0].ruta"><mat-icon class="icon add mx-2">add_circle_outline</mat-icon></a>
+        <a [routerLink]="item.rutas[1].ruta"><mat-icon class="icon look mx-2">search</mat-icon></a>
+      </div>
+    </div>
+  </div>     
+</div>
+</div>

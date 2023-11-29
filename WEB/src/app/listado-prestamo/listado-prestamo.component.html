@@ -1,0 +1,15 @@
+<app-side-bar [(collapsed)]="collapsed"></app-side-bar>
+<div
+  class="container_p mt-4"
+  [ngClass]="{ trimed: !collapsed, 'not-trimed': collapsed }"
+>
+  <h2 class="sub-title">Lista de Prestamos Activos</h2>
+
+  <div class="prestamo mb-4" *ngFor="let prestamo of prestamos">
+    <div class="prestamo-info">
+      <p class="prestamo-vendedor"><b>Nombre Vendedor:</b> {{ prestamo.vendedor }}</p>
+      <p class="prestamo-producto"><b>Nombre Producto:</b> {{ prestamo.nombreProducto }}</p>
+      <p class="prestamo-monto"><b>Monto Prestamo:</b> ${{ prestamo.monto }}</p>
+    </div>
+  </div>
+</div>

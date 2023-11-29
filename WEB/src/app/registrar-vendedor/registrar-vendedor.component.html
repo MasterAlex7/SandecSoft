@@ -1,0 +1,45 @@
+<app-side-bar [(collapsed)]="collapsed"></app-side-bar>
+<div class="container" [ngClass]="{'trimed': !collapsed, 'not-trimed': collapsed}"> 
+    <div class="form-container">
+        <h1 class="text-center">Registro Vendedor</h1>
+        <form [formGroup]="vendedorForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" formControlName="nombre" name="nombre" class="form-control" 
+            [ngClass]=" 
+            vendedorForm.controls['nombre'].valid
+              ? 'is-valid'
+              : '' + vendedorForm.controls['nombre'].invalid &&
+              vendedorForm.controls['nombre'].touched
+              ? 'is-invalid'
+              : '' " />
+              <div *ngIf="vendedorForm.controls['nombre'].errors?.['required']" class="text-danger">Ingresar nombre del vendedor</div>
+          </div>
+          <div class="form-group">
+            <label for="direccion">Nombre Negocio:</label>
+            <input type="text" id="direccion" formControlName="negocio" name="direccion" class="form-control" 
+            [ngClass]="
+            vendedorForm.controls['negocio'].valid
+              ? 'is-valid'
+              : '' + vendedorForm.controls['negocio'].invalid &&
+              vendedorForm.controls['negocio'].touched
+              ? 'is-invalid'
+              : '' "/>
+              <div *ngIf="vendedorForm.controls['negocio'].errors?.['required']" class="text-danger">Ingresar nombre del negocio</div>
+          </div>
+          <div class="form-group">
+            <label for="telefono">Telefono:</label>
+            <input type="text" id="telefono" formControlName="telefono" name="telefono" class="form-control"
+            [ngClass]="
+            vendedorForm.controls['telefono'].valid
+              ? 'is-valid'
+              : '' + vendedorForm.controls['telefono'].invalid &&
+              vendedorForm.controls['telefono'].touched
+              ? 'is-invalid'
+              : '' " />
+              <div *ngIf="vendedorForm.controls['telefono'].errors?.['required']" class="text-danger">Ingresar telefono</div>
+          </div>
+          <button type="submit" class="btn btn-primary" [disabled]="!vendedorForm.valid">Agregar Vendedor</button>
+        </form>
+      </div>
+</div>

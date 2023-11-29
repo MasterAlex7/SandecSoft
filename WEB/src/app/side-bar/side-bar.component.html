@@ -1,0 +1,96 @@
+<!-- Añade esta estructura en tu componente de barra lateral -->
+<div class="sidebar-container" [ngClass]="collapsed ? 'sidenav-collapsed': ''">
+  <button mat-icon-button class="menu-button" (click)="toggleCollapse()" [class.center-menu]="collapsed">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <div class="logo" >
+    <img class="logo-img" src="../../assets/logo_sandec.png" alt="" />
+  </div>
+  <mat-divider></mat-divider>
+  <div class="sidebar" [ngClass]="collapsed ? 'sidebar-collapsed': ''"> 
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/home">
+          <mat-icon>home</mat-icon>
+          <span class="title-section" *ngIf="icon">Inicio</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#ventas_submenu" class="nav-link" data-bs-toggle="collapse">
+          <mat-icon>money</mat-icon>
+          <span class="title-section" *ngIf="icon">Venta</span>
+        </a>
+        <ul class="collapse flex-column ms-2 sub_menu_show" id="ventas_submenu" *ngIf="icon">
+          <li class="nav-item-sub">
+            <a class="nav-link nav-subitem" routerLink="/ventas-crear">
+              <span (click)="toggleCollapse()" >Crear Venta</span>
+            </a>
+          </li>
+          <li class="nav-item-sub">
+            <a class="nav-link nav-subitem" routerLink="/lista-ventas">
+              <span (click)="toggleCollapse()" >Consultar Ventas</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-item">
+        <a href="#productos_submenu" class="nav-link" data-bs-toggle="collapse">
+          <mat-icon>local_mall</mat-icon>
+          <span class="title-section" *ngIf="icon">Productos</span>
+        </a>
+        <ul class="collapse  flex-column ms-2 sub_menu_show" id="productos_submenu" *ngIf="icon">
+          <li class="nav-item-sub">
+            <a class="nav-link nav-subitem" routerLink="/registrar-producto">
+              <span (click)="toggleCollapse()" >Registrar Producto</span>
+            </a>
+          </li>
+          <li class="nav-item-sub">
+            <a class="nav-link nav-subitem" routerLink="/listado-productos">
+              <span (click)="toggleCollapse()">Consultar | Modificar Productos</span>
+            </a>
+          </li>
+          <li class="nav-item-sub">
+            <a class="nav-link nav-subitem" routerLink="/registrar-compra">
+              <span (click)="toggleCollapse()">Comprar Productos</span>
+            </a>
+          </li>
+          <li class="nav-item-sub">
+            <a class="nav-link nav-subitem" routerLink="/listado-compras">
+              <span (click)="toggleCollapse()">Consultar Compras de Productos</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#prestamos_submenu" data-bs-toggle="collapse">
+          <mat-icon>local_parking</mat-icon>
+          <span class="title-section" *ngIf="icon">Prestamos</span>
+        </a>
+        <ul class="collapse  flex-column ms-2 sub_menu_show" id="prestamos_submenu" *ngIf="icon">
+          <li class="nav-item-sub">
+            <a class="nav-link nav-subitem" routerLink="/registrar-prestamo">
+              <span (click)="toggleCollapse()" >Registrar Prestamo</span>
+            </a>
+          </li>
+          <li class="nav-item-sub">
+            <a class="nav-link nav-subitem" routerLink="/listado-prestamos">
+              <span (click)="toggleCollapse()">Consultar Prestamos</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/reportes">
+          <mat-icon>bar_chart</mat-icon>
+          <span class="title-section" *ngIf="icon">Reportes</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#configuracion_submenu" class="nav-link" data-bs-toggle="collapse" routerLink="/configuracion-menu">
+          <mat-icon>build</mat-icon>
+          <span class="title-section" *ngIf="icon">Configuracion</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

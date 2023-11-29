@@ -1,0 +1,15 @@
+<app-side-bar [(collapsed)]="collapsed"></app-side-bar>
+<div class="container_p mt-4" [ngClass]="{'trimed': !collapsed, 'not-trimed': collapsed}">
+  <h2>Lista de Proveedores</h2>
+
+  <div class="proveedor" *ngFor="let proveedor of proveedores">
+    <div class="proveedor-info">
+      <p class="proveedor-nombre"><b>Nombre: </b>{{ proveedor.nombre }}</p>
+      <p class="proveedor-direccion"><b>Direccion: </b>{{ proveedor.direccion }}</p>
+      <p class="proveedor-telefono"><b>Telefono: </b>{{ proveedor.telefono }}</p>
+      <p class="proveedor-correo"><b>Correo: </b>{{ proveedor.email }}</p>
+    </div>
+    <button (click)="editarProveedor(proveedor)" class="btn-ver-detalle">Editar proveedor</button>
+    <mat-icon class="icon delete mx-2" (click)="desactivar(proveedor)">delete_outline</mat-icon>
+  </div>
+</div>

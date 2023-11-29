@@ -1,0 +1,16 @@
+<app-side-bar [(collapsed)]="collapsed"></app-side-bar>
+<div class="container_p mt-4" [ngClass]="{'trimed': !collapsed, 'not-trimed': collapsed}">
+    <h1 class="sub-title">Informacion de Producto</h1>
+    <div class="card mx-auto my-5 p-5" style="max-width: 80%;">
+        <div class="card-body">
+          <h2 class="card-title">Nombre producto: {{producto.nombre}}</h2>
+          <p class="card-text"><b>Descripcion:</b> {{producto.descripcion}}.</p>
+          <p class="card-text"><b>Precio de venta:</b> {{producto.precio_venta | currency}}</p>
+          <p class="card-text"><b>Precio de compra:</b> {{producto.precio_compra | currency}}</p>
+          <p class="card-text"><b>Stock Disponible:</b> {{producto.cantidad_stock}}</p>
+          <p class="card-text"><b>Cantidad mínima:</b> {{producto.cantidad_minima}}</p>
+          <p class="card-text"><b>Fecha de creación:</b> {{producto.fechaCreacion}}</p>
+        </div>
+      </div>      
+</div>
+  

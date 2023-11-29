@@ -1,0 +1,28 @@
+<app-side-bar [(collapsed)]="collapsed"></app-side-bar>
+<div
+  class="container_p mt-4"
+  [ngClass]="{ trimed: !collapsed, 'not-trimed': collapsed }"
+>
+  <h2 class="sub-title">Lista de Ventas</h2>
+
+  <div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let venta of ventas">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title"><b>Cliente:</b> {{ venta.nombreCliente }}</h3>
+          <p class="card-text">
+            <b>Monto Venta:</b> {{ venta.total | currency }} <br>
+            <b>Fecha Venta:</b> {{ venta.fecha}}
+          </p>
+          <div class="row botones-vert">
+            <div class="col">
+              <button (click)="visualizarVenta(venta)" class="btn btn-primary btn-block">
+                Visualizar venta
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

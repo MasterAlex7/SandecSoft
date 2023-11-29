@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+@import "node_modules/angular-notifier/styles";
+
+:root {
+    --primary-color: #1236be ; /* Define una variable global llamada --primary-color */
+    --background-color:#101b46;
+    --second-color: #74dc72; /* Define una variable global para el tamaño de fuente */
+    --thrid-color: #449514;
+    --fourth-color: #60b052;
+    --fifth-color: #207a1e;
+    --sub-item:#1a6619;
+    --sub-menu:rgb(56, 99, 255);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body { height: 100%; position: relative;}
+
+

@@ -1,0 +1,34 @@
+<app-side-bar [(collapsed)]="collapsed"></app-side-bar>
+<div class="container_p"  [ngClass]="{ trimed: !collapsed, 'not-trimed': collapsed }">
+  <div class="form-container">
+    <h1 class="text-center">Registro Categoria</h1>
+    <form [formGroup]="categoriaForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" formControlName="nombre" class="form-control" [ngClass]="
+        categoriaForm.controls['nombre'].valid
+          ? 'is-valid'
+          : '' + categoriaForm.controls['nombre'].invalid &&
+          categoriaForm.controls['nombre'].touched
+          ? 'is-invalid'
+          : '' "/>
+        <div *ngIf="categoriaForm.controls['nombre'].errors?.['required']" class="text-danger">Ingresar nombre</div>
+      </div>
+      <div class="form-group">
+        <label for="descripcion">Descripción:</label>
+        <textarea id="descripcion" formControlName="descripcion" class="form-control" 
+        [ngClass]="
+        categoriaForm.controls['descripcion'].valid
+                ? 'is-valid'
+                : '' + categoriaForm.controls['descripcion'].invalid &&
+                categoriaForm.controls['descripcion'].touched
+                ? 'is-invalid'
+                : ''
+            "></textarea>
+        <div *ngIf="categoriaForm.controls['descripcion'].errors?.['required']" class="text-danger">Breve Descripción</div>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!categoriaForm.valid">Agregar Categoria</button>
+    </form>
+  </div>
+</div>
+
